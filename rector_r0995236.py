@@ -1,3 +1,4 @@
+import random
 from verkiezing import Kandidaat, Stem, Kiezer
 
 class RectorKandidaat(Kandidaat):
@@ -41,6 +42,7 @@ lijst_kiezers = [
     RectorKiezer("Milan", "engels"),
     RectorKiezer("Mia", "geneeskunde")]
 
+# Elke kiezer stemt op een willekeurige kandidaat
 for kiezer in lijst_kiezers:
-    for kandidaat in lijst_van_kandidaten:
-        kiezer.stem(kandidaat)
+    kandidaatnummer = random.randint(0, len(lijst_van_kandidaten) - 1)
+    kiezer.stem(lijst_van_kandidaten[kandidaatnummer])
